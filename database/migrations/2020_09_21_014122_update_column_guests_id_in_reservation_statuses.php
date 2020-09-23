@@ -14,7 +14,7 @@ class UpdateColumnGuestsIdInReservationStatuses extends Migration
     public function up()
     {
         Schema::table('reservation_statuses', function (Blueprint $table) {
-            $table->foreign('guest_id')->references('id')->on('guests');
+            $table->foreign('guest_id')->references('id')->on('guests')->onDelete('cascade');
         });
     }
 
