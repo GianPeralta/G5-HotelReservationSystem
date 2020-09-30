@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 // FOR LOGIN
 Route::get('/', 'LoginController@index')->name('login');
 Route::post('/', 'LoginController@login');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/register', 'LoginController@register');
+Route::post('/register', 'LoginController@store');
+
+Route::get('/logout', 'LoginController@logout')->middleware('auth');
 
 // FOR HOMEPAGE
 Route::get('/home', 'HomeController@index')->middleware('auth');

@@ -6,6 +6,7 @@
 			<div class="col s12">
 					<h5>Create Guests</h5>
 					<form action="/guests" method="POST">
+						@include('layouts.errors')
 						@csrf
 					     <div class="row">
 					       <div class="input-field col s6">

@@ -12,10 +12,17 @@
 						@csrf
 						<input type="email" name='email' required placeholder="Email Address">
 						<input type="password" name='password' required placeholder="Password">
-						<button class="btn waves-effect wave-light" type="submit">Submit
+						<button class="btn waves-effect wave-light" type="login">Login
 							<i class="material-icons right">send</i>
 						</button>
 					</form>
+					<br>
+					<h5>Don't have an Account?</h5>
+					<a href="/register">
+						<button class="btn waves-effect wave-light" type="register">Register
+								<i class="material-icons right">send</i>
+						</button>
+					</a>
 
 			</div>
 		</div>

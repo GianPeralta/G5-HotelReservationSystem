@@ -7,6 +7,7 @@
 					<h5>Update Guests</h5>
 					<form action="/guests/{{ $guest->id }}" method="POST">
 						@method('PUT')
+						@include('layouts.errors')
 						@csrf
 					     <div class="row">
 					       <div class="input-field col s6">

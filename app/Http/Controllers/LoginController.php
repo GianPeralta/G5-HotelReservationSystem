@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -26,6 +27,33 @@ class LoginController extends Controller
     	return back()->withErrors([
     		'credentials' => '*** Incorrect email or password ***'
     	]);
+    }
+
+    public function register()
+    {
+    	return view('login.register');
+    }
+
+    public function store()
+    {
+    	$validated_fields = request()->validate([
+    		'name' => 'required',
+    		'email' => 'required|unique:users',
+    		'password' => 'required'
+    	]);
+    	$validated_fields['password'] = bcrypt($validated_fields['password']);
+    	$user = User::create($validated_fields);
+
+    	return redirect('/');
+
+    	//simplified form
+    	/*$user = User::create([
+			'name' => 'Juan',
+			'email' => 'juan@email.com',
+			'password' => bycrypt'password'
+		]);
+    	$user = new User; */	
+ 		   
     }
 
     public function logout()

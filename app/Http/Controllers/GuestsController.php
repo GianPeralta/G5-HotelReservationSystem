@@ -26,12 +26,20 @@ class GuestsController extends Controller
     public function store()
     {
     	//create new guest
-    	$guest = new Guest;
+    	/*$guest = new Guest;
     	$guest->first_name = request()->first_name;
     	$guest->last_name = request()->last_name;
     	$guest->contact_number = request()->contact_number;
     	$guest->email = request()->email;
-    	$guest->save();
+    	$guest->save(); */
+
+        $validated_fields = request()->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'contact_number' => 'required',
+            'email' => 'required'
+        ]);
+        $guest = Guest::create($validated_fields);
 
     	//redirect
     	return redirect('/guests');
@@ -44,10 +52,16 @@ class GuestsController extends Controller
 
     public function update(Guest $guest)
     {
-    	$guest->first_name = request()->first_name;
-    	$guest->last_name = request()->last_name;
-    	$guest->contact_number = request()->contact_number;
-    	$guest->email = request()->email;
+    	$validated_fields = request()->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'contact_number' => 'required',
+            'email' => 'required'
+        ]);
+        $guest->first_name = request()->first_name;
+        $guest->last_name = request()->last_name;
+        $guest->contact_number = request()->contact_number;
+        $guest->email = request()->email;
     	$guest->save();
 
     	//redirect

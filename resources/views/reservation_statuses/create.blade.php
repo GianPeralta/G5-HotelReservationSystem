@@ -6,6 +6,7 @@
 			<div class="col s12">
 					<h5>Create Reservation Status</h5>
 					<form action="/reservation_statuses" method="POST">
+						@include('layouts.errors')
 						@csrf
 					     <div class="row">
 					       <div class="input-field col s12">

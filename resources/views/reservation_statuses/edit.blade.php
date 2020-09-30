@@ -7,6 +7,7 @@
 					<h5>Update Reservation Status</h5>
 					<form action="/reservation_statuses/{{ $reservation_status->id }}" method="POST">
 						@method('PUT')
+						@include('layouts.errors')
 						@csrf
 					     <div class="row">
 					       <div class="input-field col s12">
