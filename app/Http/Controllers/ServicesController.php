@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Service;
 use Illuminate\Http\Request;
 
@@ -22,11 +23,13 @@ class ServicesController extends Controller
     }
 
     public function store() {
-    	$service = new Service;
-    	$service->name = request()->name;
-    	$service->description = request()->description;
-    	$service->guests_id = request()->guests_id;
-    	$service->save();
+      $validated_fields = request()->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'guests_id' => 'required'
+        ]);
+
+        $service = Service::create($validated_fields);
 
     	return redirect('/services');
     }
@@ -36,8 +39,15 @@ class ServicesController extends Controller
     }
 
     public function update(Service $service) {
+
+      $validated_fields = request()->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'guests_id' => 'required'
+        ]);
+
         $service->name = request()->name;
-        $service->description = request()->description;
+    	  $service->description = request()->description;
         $service->guests_id = request()->guests_id;
         $service->save();
 
