@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\RoomType;
 use Illuminate\Http\Request;
 
@@ -22,11 +22,11 @@ class RoomTypesController extends Controller
     }
 
     public function store() {
-    	$room_type = new RoomType;
-    	$room_type->standard_rate = request()->standard_rate;
-    	$room_type->description = request()->description;
-    	$room_type->save();
-
+        $validated_fields = request()->validate([
+            'standard_rate' => 'required',
+            'description' => 'required' 
+        ]);
+        $room_type = RoomType::create($validated_fields);
     	return redirect('/room-types');
     }
 
@@ -35,6 +35,10 @@ class RoomTypesController extends Controller
     }
 
     public function update(RoomType $room_type) {
+        $validated_fields = request()->validate([
+            'standard_rate' => 'required',
+            'description' => 'required' 
+        ]);
     	$room_type->standard_rate = request()->standard_rate;
     	$room_type->description = request()->description;
     	$room_type->save();

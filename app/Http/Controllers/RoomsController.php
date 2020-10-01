@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Room;
 use Illuminate\Http\Request;
 
@@ -22,14 +22,16 @@ class RoomsController extends Controller
     }
 
     public function store() {
-    	$room = new Room;
-    	$room->name = request()->name;
-    	$room->status = request()->status;
-    	$room->floor_level = request()->floor_level;
-    	$room->room_type_id = request()->room_type;
-    	$room->save();
+        $validated_fields = request()->validate([
+            'name' => 'required|unique:rooms',
+            'status' => 'required',
+            'floor_level' => 'required',
+            'room_type_id' => 'required'
+        ]);
 
-    	return redirect('/rooms');
+        $room = Room::create($validated_fields);
+
+        return redirect('/rooms');
     }
 
     public function edit(Room $room) {
@@ -37,10 +39,17 @@ class RoomsController extends Controller
     }
 
     public function update(Room $room) {
+        $validated_fields = request()->validate([
+            'name' => 'required|unique:rooms',
+            'status' => 'required',
+            'floor_level' => 'required',
+            'room_type_id' => 'required'
+        ]);
+
         $room->name = request()->name;
         $room->status = request()->status;
         $room->floor_level = request()->floor_level;
-        $room->room_type_id = request()->room_type;
+        $room->room_type_id = request()->room_type_id;
         $room->save();
 
         return redirect('/rooms/'.$room->id);
