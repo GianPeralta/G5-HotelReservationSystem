@@ -25,11 +25,17 @@ class PaymentsController extends Controller
     public function store()
     {
     	//Create a new event
-    	$payment = new Payment;
+        //Validate form
+    	/*$payment = new Payment;
     	$payment->status = request()->status;
     	$payment->description = request()->description;
-    	$payment->save();
-
+    	$payment->save();*/
+        $validated_fields = request()->validate([
+            'status' => 'required',
+            'description' => 'required'
+        ]);
+        $payment = Payment::create($validated_fields);
+        //$payment = Payment::create($validated_fields);
     	//redirect
     	return redirect('/');
     }
