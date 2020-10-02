@@ -1,6 +1,4 @@
-@extends('layouts.master')
 
-@section('content')
 	<form action="/room-types" method='POST'>
 		@include('layouts.errors')
 		@csrf
@@ -15,4 +13,3 @@
 	  	</div>
 	  	<button type="submit" class="btn btn-primary" name="action">Submit</button>
 	</form>
-@endsection

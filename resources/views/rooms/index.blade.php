@@ -1,6 +1,3 @@
-@extends('layouts.master')
-
-@section('content')
 
 	<h5>Rooms</h5>
  	
@@ -13,4 +10,3 @@
 	<div class="room-opt">
 		<a href="/rooms/create">Create a new Room</a>
 	</div>	
-@endsection

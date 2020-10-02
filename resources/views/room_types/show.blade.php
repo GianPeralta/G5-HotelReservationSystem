@@ -1,6 +1,4 @@
-@extends('layouts.master')
 
-@section('content')
 	<a href="/room-types">&lt&lt All Room Types</a>
 	<hr>
 	
@@ -16,4 +14,3 @@
 	</form>
 
 
-@endsection

@@ -1,6 +1,4 @@
-@extends('layouts.master')
 
-@section('content')
 	<form action="/rooms/{{ $room->id }}" method='POST'>
 		@method('PUT')
 		@include('layouts.errors')
@@ -29,4 +27,3 @@
 	  	</div>
 	  	<button type="submit" class="btn btn-primary" name="action">Submit</button>
 	</form>
-@endsection

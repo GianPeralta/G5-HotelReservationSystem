@@ -1,6 +1,4 @@
-@extends('layouts.master')
 
-@section('content')
     <div class="noli">
         <h5>Room Types</h5>
         
@@ -14,4 +12,3 @@
     <div class="room-opt">
         <a href="/room-types/create">Create a new Room Type</a>
     </div>
-@endsection
