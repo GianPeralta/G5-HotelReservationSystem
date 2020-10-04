@@ -36,8 +36,8 @@ class GuestsController extends Controller
         $validated_fields = request()->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'contact_number' => 'required',
-            'email' => 'required'
+            'contact_number' => 'required|unique:guests',
+            'email' => 'required|unique:guests'
         ]);
         $guest = Guest::create($validated_fields);
 
@@ -55,8 +55,8 @@ class GuestsController extends Controller
     	$validated_fields = request()->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'contact_number' => 'required',
-            'email' => 'required'
+            'contact_number' => 'required|unique:guests',
+            'email' => 'required|unique:guests'
         ]);
         $guest->first_name = request()->first_name;
         $guest->last_name = request()->last_name;
