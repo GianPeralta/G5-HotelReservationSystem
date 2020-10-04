@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/user-roles', 'UserRolesController@index');
+Route::get('/user-roles/create', 'UserRolesController@create');
+Route::get('/user-roles/{user_role}', 'UserRolesController@show');
+Route::get('/user-roles/{user_role}/edit', 'UserRolesController@edit');
+Route::post('/user-roles', 'UserRolesController@store');
+Route::put('/user-roles/{user_role}', 'UserRolesController@update');
+Route::delete('/user-roles/{user_role}', 'UserRolesController@destroy');
