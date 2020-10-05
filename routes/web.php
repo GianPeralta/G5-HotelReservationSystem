@@ -73,8 +73,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::put('/staff-users/{staff_user}', 'StaffUsersController@update');
 	Route::delete('/staff-users/{staff_user}', 'StaffUsersController@destroy');
 
-	// FOR HOMEPAGE
-	Route::get('/', 'PaymentsController@index');
+	// PAYMENTS
+	Route::get('/payments', 'PaymentsController@index');
 	Route::get('/payments/create', 'PaymentsController@create');
 	Route::get('/payments/{payment}', 'PaymentsController@show');
 	Route::get('/payments/{payment}/edit','PaymentsController@edit');
@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::put('/user-roles/{user_role}', 'UserRolesController@update');
 	Route::delete('/user-roles/{user_role}', 'UserRolesController@destroy');
   
-  //RESERVATIONS
+  	//RESERVATIONS
 	Route::get('/reservations', 'ReservationsController@index');
 	Route::get('/reservations/create', 'ReservationsController@create');
 	Route::get('/reservations/{reservation}', 'ReservationsController@show');
@@ -100,14 +100,14 @@ Route::middleware(['auth'])->group(function(){
 	Route::put('/reservations/{reservation}', 'ReservationsController@update');
 	Route::delete('/reservations/{reservation}', 'ReservationsController@destroy');
   
-  //SERVICES
-  Route::get('/services', 'ServicesController@index');
-  Route::get('/services/create', 'ServicesController@create');
-  Route::get('/services/{service}', 'ServicesController@show');
-  Route::get('/services/{service}/edit', 'ServicesController@edit');
-  Route::post('/services', 'ServicesController@store');
-  Route::put('/services/{service}', 'ServicesController@update');
-  Route::delete('/services/{service}', 'ServicesController@destroy');
+  	//SERVICES
+	Route::get('/services', 'ServicesController@index');
+	Route::get('/services/create', 'ServicesController@create');
+	Route::get('/services/{service}', 'ServicesController@show');
+	Route::get('/services/{service}/edit', 'ServicesController@edit');
+	Route::post('/services', 'ServicesController@store');
+	Route::put('/services/{service}', 'ServicesController@update');
+	Route::delete('/services/{service}', 'ServicesController@destroy');
 
 });
 

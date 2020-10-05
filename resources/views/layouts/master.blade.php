@@ -2,22 +2,36 @@
   <html>
 
     <head>
+      <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
       <style>
-        .nav-wrapper {
-          padding-left: 50px;
-        }
-        body {
-           display: flex;
-           min-height: 100vh;
-           flex-direction: column;
-         }
+          * {
+            font-family: 'Sansita Swashed', cursive;
+          }
 
-         main {
-           flex: 1 0 auto;
-         }
-         footer{
-            margin-top: auto;
-         }
+          .nav-wrapper {
+            padding-left: 50px;
+          }
+
+          body {
+             display: flex;
+             min-height: 100vh;
+             flex-direction: column;
+          }
+
+          main {
+             flex: 1 0 auto;
+          }
+
+          footer{
+              margin-top: auto;
+          }
+
+          .navp {
+              text-align: center;
+          }
+
+
+
       </style>
       <meta charset="utf-8">
       <!--Import Google Icon Font-->
@@ -50,15 +64,8 @@
 
     <footer class="page-footer">
           <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer</h5>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2020 Copyright Text
+            <div class="row">         
+                <p class="navp">COPYRIGHT</p>
             </div>
           </div>
     </footer>

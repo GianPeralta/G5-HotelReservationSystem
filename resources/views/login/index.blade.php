@@ -6,7 +6,7 @@
 			<div class="col-sm-12">
 					<h1>WELCOME TO THE LOGIN PAGE</h1>
 					<br>
-					<h5>Please Sign-in below</h5>
+					<h5>Please Login below</h5>
 					<form action='/' method= 'POST'>
 						@include('layouts.errors')
 						@csrf
@@ -17,6 +17,7 @@
 						</button>
 					</form>
 					<br>
+					<hr>
 					<h5>Don't have an Account?</h5>
 					<a href="/register">
 						<button class="btn waves-effect wave-light" type="register">Register
