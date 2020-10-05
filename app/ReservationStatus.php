@@ -12,9 +12,11 @@ class ReservationStatus extends Model
      * @var array
      */
     protected $fillable = [
-        'reservation_status_id', 'guest_id', 'room_id',
+        'reservation_id', 'guest_id', 'room_id',
     ];
 
     protected $table = 'reservation_statuses';
     public $timestamps = false;
+
+    
 }

@@ -19,6 +19,7 @@ class CreateGuestsTable extends Migration
             $table->string('last_name', 255);
             $table->string('contact_number', 255);
             $table->string('email', 255);
+            $table->timestamps();
             
         });
     }

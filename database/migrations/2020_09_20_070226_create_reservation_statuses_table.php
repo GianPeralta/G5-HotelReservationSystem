@@ -17,10 +17,10 @@ class CreateReservationStatusesTable extends Migration
             $table->increments('id');
             $table->timestamp('start_date')->nullable();
             $table->timestamp('end_date')->nullable();
-            $table->integer('reservation_status_id')->unsigned();
+            $table->integer('reservation_id')->unsigned();
             $table->integer('guest_id')->unsigned();
             $table->integer('room_id')->unsigned();
-
+            $table->timestamps();
         });
     }
 
