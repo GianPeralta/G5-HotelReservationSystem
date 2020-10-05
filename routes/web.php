@@ -12,13 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'ReservationStatusController@index');
-Route::get('/create','ReservationStatusController@create');
-Route::get('/ReservationStatus/{ReservationStatus}', 'ReservationStatusController@show');
-Route::get('/ReservationStatus/{ReservationStatus}/edit','ReservationStatusController@edit');
-
-Route::post('/create','ReservationStatusController@store');
-Route::put('/ReservationStatus/{ReservationStatus}', 'ReservationStatusController@update');
-
-Route::delete('/ReservationStatus/{ReservationStatus}','ReservationStatusController@destroy');
+	Route::get('/reservations', 'ReservationsController@index');
+	Route::get('/reservations/create', 'ReservationsController@create');
+	Route::get('/reservations/{reservation}', 'ReservationsController@show');
+	Route::get('/reservations/{reservation}/edit', 'ReservationsController@edit');
+	Route::post('/reservations', 'ReservationsController@store');
+	Route::put('/reservations/{reservation}', 'ReservationsController@update');
+	Route::delete('/reservations/{reservation}', 'ReservationsController@destroy');
