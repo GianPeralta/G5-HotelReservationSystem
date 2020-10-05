@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-					<h5>Reservation Statuses</h5>
+					<h5>Reservations</h5>
 					<a href="/reservations/create">Create Reservation</a>
 					<ol>
 						@foreach($reservations as $reservation)
