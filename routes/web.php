@@ -90,4 +90,14 @@ Route::middleware(['auth'])->group(function(){
 	Route::post('/user-roles', 'UserRolesController@store');
 	Route::put('/user-roles/{user_role}', 'UserRolesController@update');
 	Route::delete('/user-roles/{user_role}', 'UserRolesController@destroy');
+  
+  //RESERVATIONS
+	Route::get('/reservations', 'ReservationsController@index');
+	Route::get('/reservations/create', 'ReservationsController@create');
+	Route::get('/reservations/{reservation}', 'ReservationsController@show');
+	Route::get('/reservations/{reservation}/edit', 'ReservationsController@edit');
+	Route::post('/reservations', 'ReservationsController@store');
+	Route::put('/reservations/{reservation}', 'ReservationsController@update');
+	Route::delete('/reservations/{reservation}', 'ReservationsController@destroy');
 });
+

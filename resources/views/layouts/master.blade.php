@@ -3,6 +3,9 @@
 
     <head>
       <style>
+        .nav-wrapper {
+          padding-left: 50px;
+        }
         body {
            display: flex;
            min-height: 100vh;
