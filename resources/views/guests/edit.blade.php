@@ -4,7 +4,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-					<h5>Update Guests</h5>
+				<!-- return button -->
+					<br>
+					<button class="btn waves-effect wave-light"><a style="color: #fff;" href="/guests/{{ $guest->id }}">Cancel
+						<i class="material-icons right">cancel</i></a>
+					</button>
+					<hr>
+
+
+					<h5>Update Guest</h5>
 					<form action="/guests/{{ $guest->id }}" method="POST">
 						@method('PUT')
 						@include('layouts.errors')

@@ -14,8 +14,9 @@
 					<br>
 
 					<p>ID = {{ $reservation->id }}</p>
-					<p>Status = {{ $reservation->status }}</p>
-					<p>Description = {{ $reservation->description }}</p>
+					<p>Date = {{ $reservation->date }}</p>
+					<p>Guest ID = {{ $reservation->guest_id }}</p>
+					<p>Room ID = {{ $reservation->room_id }}</p>
 			</div>
 		</div>
 	</div>

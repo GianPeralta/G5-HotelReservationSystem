@@ -26,10 +26,10 @@ class ReservationStatusesController extends Controller
     public function store()
     {
     	//create new reservation_status
-    	$validated_fields = request()->validate([
-            'reservation_id' => 'required|unique:reservation_statuses',
-            'guest_id' => 'required|unique:reservation_statuses',
-            'room_id' => 'required|unique:reservation_statuses'
+        $validated_fields = request()->validate([
+            'reservation_id' => 'required',
+            'status' => 'required',
+            'description' => 'required'
         ]);
         $reservation_status = ReservationStatus::create($validated_fields);
 
@@ -45,14 +45,14 @@ class ReservationStatusesController extends Controller
     public function update(ReservationStatus $reservation_status)
     {
         $validated_fields = request()->validate([
-            'reservation_id' => 'required|unique:reservation_statuses',
-            'guest_id' => 'required|unique:reservation_statuses',
-            'room_id' => 'required|unique:reservation_statuses'
+            'reservation_id' => 'required',
+            'status' => 'required',
+            'description' => 'required'
+
         ]);
-        
         $reservation_status->reservation_id = request()->reservation_id;
-        $reservation_status->guest_id = request()->guest_id;
-        $reservation_status->room_id = request()->room_id;
+        $reservation_status->status = request()->status;
+        $reservation_status->description = request()->description;
         $reservation_status->save();
 
         //redirect

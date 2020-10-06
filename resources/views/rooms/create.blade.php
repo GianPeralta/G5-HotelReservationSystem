@@ -14,12 +14,7 @@
 				  	</div>
 				  	<div class="form-group">
 					    <label for="status">Status</label>
-					    <br>
-					    <select class="form-control" name="status" required>
-						    <option value="Available">Available</option>
-						    <option value="Occupied">Occupied</option>
-						    <option value="Under Maintenance">Under Maintenance</option>
-			  			</select>
+					    <input type="text" class="form-control" name="status" required>
 				  	</div>
 				  	<div class="form-group">
 					    <label for="floor_level">Floor level</label>

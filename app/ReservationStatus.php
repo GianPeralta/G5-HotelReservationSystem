@@ -6,17 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReservationStatus extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'reservation_id', 'guest_id', 'room_id',
-    ];
+     protected $fillable = ['reservation_id', 'status', 'description'];
 
-    protected $table = 'reservation_statuses';
-    public $timestamps = false;
-
-    
+    public function reservation() {
+        return $this->belongsTo(Reservation::class);
+    }
 }

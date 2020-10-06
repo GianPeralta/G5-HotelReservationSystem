@@ -16,4 +16,8 @@ class Guest extends Model
     ];
 
     public $timestamps = false;
+
+    public function payments() {
+    	return $this->hasMany(Payment::class);
+    }
 }

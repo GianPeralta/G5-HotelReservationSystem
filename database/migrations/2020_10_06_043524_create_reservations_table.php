@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyToPayments extends Migration
+class CreateReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddForeignKeyToPayments extends Migration
      */
     public function up()
     {
-        Schema::table('payments', function (Blueprint $table) {
-            $table->foreign('guest_id')->references('id')->on('guests')->onDelete('cascade');
+        Schema::create('reservations', function (Blueprint $table) {
+            $table->id();
+            $table->date('date');
+            $table->unsignedInteger('guest_id');
+            $table->unsignedInteger('room_id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddForeignKeyToPayments extends Migration
      */
     public function down()
     {
-        Schema::table('payments', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('reservations');
     }
 }

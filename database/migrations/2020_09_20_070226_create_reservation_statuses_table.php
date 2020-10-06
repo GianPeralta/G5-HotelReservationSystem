@@ -15,11 +15,9 @@ class CreateReservationStatusesTable extends Migration
     {
         Schema::create('reservation_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('start_date')->nullable();
-            $table->timestamp('end_date')->nullable();
-            $table->integer('reservation_id')->unsigned();
-            $table->integer('guest_id')->unsigned();
-            $table->integer('room_id')->unsigned();
+            $table->unsignedInteger('reservation_id');
+            $table->string('status');
+            $table->string('description');
             $table->timestamps();
         });
     }

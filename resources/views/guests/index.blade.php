@@ -10,7 +10,7 @@
 						@foreach($guests as $guest)
 
 							<li>
-								<a href="/guests/{{ $guest->id }}">Guests Name = {{ $guest->first_name }} {{ $guest->last_name }}</a>
+								<a href="/guests/{{ $guest->id }}">{{ $guest->first_name }} {{ $guest->last_name }}</a>
 							</li>
 						@endforeach
 					</ol>	

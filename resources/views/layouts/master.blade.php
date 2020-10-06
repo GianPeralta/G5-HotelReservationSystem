@@ -3,11 +3,12 @@
 
     <head>
       <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
       <style>
           * {
             font-family: 'Sansita Swashed', cursive;
           }
-
+           
           .nav-wrapper {
             padding-left: 50px;
           }
@@ -31,7 +32,6 @@
           }
 
 
-
       </style>
       <meta charset="utf-8">
       <!--Import Google Icon Font-->
@@ -43,7 +43,7 @@
 
       <nav>
           <div class="nav-wrapper">
-            <a href="/" class="brand-logo">Hotel Reservation System</a>
+            <a style="font-family: 'Montserrat', sans-serif;" href="/" class="brand-logo">Hotel Reservation System</a>
           </div>
       </nav>
               
@@ -65,9 +65,9 @@
     <footer class="page-footer">
           <div class="container">
             <div class="row">         
-                <p class="navp">COPYRIGHT</p>
+                <p style="font-family: 'Montserrat', sans-serif;" class="navp">COPYRIGHT</p>
             </div>
           </div>
     </footer>
-    
+
   </html>

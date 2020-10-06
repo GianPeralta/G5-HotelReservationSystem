@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
 	protected $fillable = ['status', 'description', 'guest_id'];	
+
+	public function guest() {
+    	return $this->belongsTo(Guest::class);
+    }
 }

@@ -9,16 +9,22 @@
 						@method('PUT')
 						@include('layouts.errors')
 						@csrf
-					     <div class="row">
+						<div class="row">
 					       <div class="input-field col s12">
-					         <input placeholder="Status" id="status" type="text" name="status" value='{{ $reservation-> status }}'>
-					         <label for="status">Status</label>
+					         <input placeholder="Date" type="date" name="date" value='{{ $reservation-> date }}'>
+					         <label for="date">Date</label>
 					       </div>
 					     </div>
 					     <div class="row">
 					       <div class="input-field col s12">
-					         <input placeholder="Description" id="description" type="text" name="description" value='{{ $reservation-> description }}'>
-					         <label for="description">Description</label>
+					         <input placeholder="Guest ID" type="number" name="guest_id" value='{{ $reservation-> guest_id }}'>
+					         <label for="guest_id">Guest ID</label>
+					       </div>
+					     </div>
+					     <div class="row">
+					       <div class="input-field col s12">
+					         <input placeholder="Room ID" type="number" name="room_id" value='{{ $reservation-> room_id }}'>
+					         <label for="room_id">Room ID</label>
 					       </div>
 					     </div>
 					     <div class="row">

@@ -16,7 +16,7 @@ class CreateStaffUsersTable extends Migration
         Schema::create('staff_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('staff_user_id')->unsigned();
+            $table->unsignedInteger('user_role_id');
             $table->timestamps();
         });
     }

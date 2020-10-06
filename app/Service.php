@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    protected $fillable = ['name', 'description', 'guests_id'];
+    protected $fillable = ['name', 'description', 'guest_id'];
 }

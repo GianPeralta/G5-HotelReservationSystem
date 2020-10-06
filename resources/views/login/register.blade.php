@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-					<h1>WELCOME TO THE REGISTER PAGE</h1>
+					<h2>Welcome to the register page</h2>
 					<br>
 					<h5>Please Register below</h5>
 					<form action='/register' method= 'POST'>

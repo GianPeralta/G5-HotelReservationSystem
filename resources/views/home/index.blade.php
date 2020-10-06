@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 					<h1 style="color: #ee6e73; text-align: center;">Welcome {{ auth()->user()->name }}</h1>
-					<h4>Where would you like to go?</h4>
+					<h5>Where would you like to go?</h5>
 
 					<a href="/guests">
 						<h6>Guests &#x3e;&#x3e;</h6>
@@ -42,7 +42,7 @@
 					</a>
 					<hr>
 
-					<h4 style="padding-top: 10px;">Hotel Staff</h4>
+					<h5 style="padding-top: 10px;">Hotel Staff</h5>
 					<a href="/staff-users">
 						<h6>Staff Users &#x3e;&#x3e;</h6>
 					</a>

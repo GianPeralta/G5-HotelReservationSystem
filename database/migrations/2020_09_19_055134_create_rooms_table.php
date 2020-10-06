@@ -18,7 +18,7 @@ class CreateRoomsTable extends Migration
             $table->string('name');
             $table->string('status');
             $table->integer('floor_level');
-            $table->integer('room_type_id')->unsigned();
+            $table->unsignedInteger('room_type_id');
             $table->timestamps();
         });
     }

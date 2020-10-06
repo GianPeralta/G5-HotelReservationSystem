@@ -4,7 +4,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-					<h5>Create Guests</h5>
+				<!-- return button -->
+					<br>
+					<button class="btn waves-effect wave-light"><a style="color: #fff;" href="/guests">Cancel
+						<i class="material-icons right">cancel</i></a>
+					</button>
+					<hr>
+
+					<h5>Create Guest</h5>
 					<form action="/guests" method="POST">
 						@include('layouts.errors')
 						@csrf

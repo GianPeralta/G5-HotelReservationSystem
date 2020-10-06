@@ -26,7 +26,7 @@ class ServicesController extends Controller
       $validated_fields = request()->validate([
             'name' => 'required',
             'description' => 'required',
-            'guests_id' => 'required'
+            'guest_id' => 'required'
         ]);
 
         $service = Service::create($validated_fields);
@@ -43,12 +43,12 @@ class ServicesController extends Controller
       $validated_fields = request()->validate([
             'name' => 'required',
             'description' => 'required',
-            'guests_id' => 'required'
+            'guest_id' => 'required'
         ]);
 
         $service->name = request()->name;
     	  $service->description = request()->description;
-        $service->guests_id = request()->guests_id;
+        $service->guest_id = request()->guest_id;
         $service->save();
 
         return redirect('/services/'.$service->id);

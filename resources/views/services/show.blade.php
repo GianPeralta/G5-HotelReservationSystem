@@ -5,7 +5,7 @@
     <div class="col-sm-12">
       <h5>{{ $service->name }}</h5>
       <p>{{ $service->description }}</p>
-      <p>{{ $service->guests_id }}</p>
+      <p>{{ $service->guest_id }}</p>
     </div>
   </div>
 

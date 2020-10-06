@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->string('status', 255);
             $table->string('description', 255);
             $table->unsignedInteger('guest_id');
+            $table->timestamps();
         });
     }
 

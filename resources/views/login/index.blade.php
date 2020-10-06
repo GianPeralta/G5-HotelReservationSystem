@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-					<h1>WELCOME TO THE LOGIN PAGE</h1>
+					<h2>Welcome to the Login Page</h2>
 					<br>
 					<h5>Please Login below</h5>
 					<form action='/' method= 'POST'>
