@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->increments('id');
             $table->string('status', 255);
             $table->string('description', 255);
-            $table->integer('guest_id')->unsigned();
+            $table->unsignedInteger('guest_id');
         });
     }
 

@@ -2218,7 +2218,7 @@ hr {
   height: 0;
   /* 1 */
   overflow: visible;
-    
+
   /* 2 */
 }
 
@@ -5167,6 +5167,7 @@ small {
 
 .btn, .btn-large, .btn-small,
 .btn-flat {
+  font-family: 'Sansita Swashed', cursive;
   border: none;
   border-radius: 2px;
   display: inline-block;
@@ -9084,6 +9085,9 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
+
+
+
 }
 
 

@@ -10,53 +10,55 @@ class PaymentsController extends Controller
 {
     public function index()
     {
-    	$payments = Payment::all();  	
+        $payments = Payment::all();     
 
-    	return view('payments.index', compact('payments'));	
+        return view('payments.index', compact('payments')); 
     }
     public function show(Payment $payment)
     {
-    	return view('payments.show', compact('payment'));
+        return view('payments.show', compact('payment'));
     }
     public function create()
     {
-    	return view('payments.create');
-    } 	
+        return view('payments.create');
+    }   
     public function store()
     {
-    	//Create a new event
-        //Validate form
-    	/*$payment = new Payment;
-    	$payment->status = request()->status;
-    	$payment->description = request()->description;
-    	$payment->save();*/
+ 
         $validated_fields = request()->validate([
             'status' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'guest_id' => 'required'
         ]);
+
         $payment = Payment::create($validated_fields);
-        //$payment = Payment::create($validated_fields);
-    	//redirect
-    	return redirect('/');
+
+        return redirect('/payments');
     }
 
     public function edit(Payment $payment)
     {
-    	return view('payments.edit', compact('payment'));
+        return view('payments.edit', compact('payment'));
     }
     public function update(Payment $payment)
     {
-    	$payment->status = request()->status;
-    	$payment->description = request()->description;
-    	$payment->save();
+        $validated_fields = request()->validate([
+            'status' => 'required',
+            'description' => 'required',
+            'guest_id' => 'required'
+        ]);
+        $payment->status = request()->status;
+        $payment->description = request()->description;
+        $payment->guest_id = request()->guest_id;
+        $payment->save();
 
-    	//redirect
-    	return redirect('/payments/'.$payment->id);
+        //redirect
+        return redirect('/payments/'.$payment->id);
     }
 
     public function destroy(Payment $payment)
     {
-    	$payment->delete();
-    	return redirect('/');
+        $payment->delete();
+        return redirect('/payments');
     }
 }
