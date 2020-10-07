@@ -11,4 +11,12 @@ class Reservation extends Model
     public function reservation_statuses() {
     	return $this->hasMany(ReservationStatus::class);
     }
+
+    public function guest() {
+    	return $this->belongsTo(Guest::class);
+    }
+
+    public function room() {
+    	return $this->belongsTo(Room::class);
+    }
 }
