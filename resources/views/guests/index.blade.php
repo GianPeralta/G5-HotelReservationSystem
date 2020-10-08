@@ -12,15 +12,17 @@
                             <th style="color: #ee6e73; font-size: 20px;">Name</th>
                             <th style="color: #ee6e73; font-size: 20px;">Contact Number</th>
                             <th style="color: #ee6e73; font-size: 20px;">Email</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($guests as $guest)
-                            <tr>
-                                <td><a href="/guests/{{$guest-> id}}">{{ $guest->id }}</a></td>
+                            <tr onclick="location.href='/guests/{{$guest-> id}}';">
+                                <td >{{ $guest->id }}</td>
                                 <td>{{ $guest->first_name }} {{ $guest->last_name }}</td>
                                 <td>{{ $guest->contact_number }}</td>
                                 <td>{{ $guest->email }}</td>
+                                <td><a href="/guests/{{$guest-> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>

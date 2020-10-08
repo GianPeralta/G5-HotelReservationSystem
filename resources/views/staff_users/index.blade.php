@@ -16,11 +16,12 @@
                     </thead>
                     <tbody>
                         @foreach($staff_users as $staff_user)
-                            <tr>
-                                <td><a href="/staff-users/{{$staff_user-> id}}">{{ $staff_user->id }}</a></td>
+                            <tr onclick="location.href='/staff-users/{{$staff_user-> id}}';">
+                                <td>{{ $staff_user->id }}</td>
                                 <td>{{ $staff_user->name }}</td>
                                 <td>{{ $staff_user->user_role->id }}</td>
                                 <td>{{ $staff_user->user_role->title }}</td>
+                                <td><a href="/staff-users/{{$staff_user-> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -15,10 +15,11 @@
                     </thead>
                     <tbody>
                         @foreach($room_types as $room_type)
-                            <tr>
-                                <td><a href="/room-types/{{$room_type-> id}}">{{ $room_type->id }}</a></td>
+                            <tr onclick="location.href='/room-types/{{$room_type -> id}}';">
+                                <td>{{ $room_type->id }}</td>
                                 <td>{{ $room_type->standard_rate }}</td>
                                 <td>{{ $room_type->description }}</td>
+                                <td><a href="/room-types/{{$room_type -> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>

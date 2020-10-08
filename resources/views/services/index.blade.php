@@ -19,14 +19,15 @@
                     </thead>
                     <tbody>
                         @foreach($services as $service)
-                            <tr>
-                                <td><a href="/services/{{$service-> id}}">{{ $service->id }}</a></td>
+                            <tr onclick="location.href='/services/{{$service-> id}}';">
+                                <td>{{ $service->id }}</td>
                                 <td>{{ $service->name }}</td>
                                 <td>{{ $service->description }}</td>
                                 <td>{{ $service->guest->id }}</td>
                                 <td>{{ $service->guest->first_name }} {{ $service->guest->last_name }}</td>
                                 <td>{{ $service->guest->contact_number }}</td>
                                 <td>{{ $service->guest->email }}</td>
+                                <td><a href="/services/{{$service-> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>

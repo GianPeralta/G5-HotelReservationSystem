@@ -14,9 +14,10 @@
                     </thead>
                     <tbody>
                         @foreach($user_roles as $user_role)
-                            <tr>
-                                <td><a href="/user-roles/{{$user_role-> id}}">{{ $user_role->id }}</a></td>
+                            <tr onclick="location.href='/user-roles/{{$user_role-> id}}';">
+                                <td>{{ $user_role->id }}</td>
                                 <td>{{ $user_role->title }}</a></td>
+                                <td><a href="/user-roles/{{$user_role-> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -19,14 +19,15 @@
                     </thead>
                     <tbody>
                         @foreach($payments as $payment)
-                            <tr>
-                                <td><a href="/payments/{{$payment-> id}}">{{ $payment->id }}</a></td>
+                            <tr onclick="location.href='/payments/{{$payment -> id}}';">
+                                <td>{{ $payment->id }}</td>
                                 <td>{{ $payment->status }}</td>
                                 <td>{{ $payment->description }}</td>
                                 <td>{{ $payment->guest->id }}</td>
                                 <td>{{ $payment->guest->first_name }} {{ $payment->guest->last_name }}</td>
                                 <td>{{ $payment->guest->contact_number }}</td>
                                 <td>{{ $payment->guest->email }}</td>
+                                <td><a href="/payments/{{$payment -> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>

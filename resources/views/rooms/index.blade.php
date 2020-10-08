@@ -19,14 +19,15 @@
 					</thead>
 					<tbody>
 						@foreach($rooms as $room)
-							<tr>
-								<td><a href="/rooms/{{$room-> id}}">{{ $room->id }}</a></td>
+							<tr onclick="location.href='/rooms/{{$room -> id}}';">
+								<td>{{ $room->id }}</td>
 								<td>{{ $room->name }}</td>
 								<td>{{ $room->status }}</td>
 								<td>{{ $room->floor_level }}</td>
 								<td>{{ $room->room_type->id }}</td>
 								<td>{{ $room->room_type->standard_rate }}</td>
 								<td>{{ $room->room_type->description }}</td>
+								<td><a href="/rooms/{{$room-> id}}">More</a></td>
 							</tr>
 						@endforeach
 					</tbody>

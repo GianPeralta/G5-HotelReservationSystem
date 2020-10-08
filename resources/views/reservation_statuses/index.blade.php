@@ -18,13 +18,14 @@
                     </thead>
                     <tbody>
                         @foreach($reservation_statuses as $reservation_status)
-                            <tr>
-                                <td><a href="/reservation_statuses/{{$reservation_status-> id}}">{{ $reservation_status->id }}</a></td>
+                            <tr onclick="location.href='/reservation_statuses/{{$reservation_status -> id}}';">
+                                <td>{{ $reservation_status->id }}</a></td>
                                 <td>{{ $reservation_status->status }}</td>
                                 <td>{{ $reservation_status->description }}</td>
                                 <td>{{ $reservation_status->reservation->id }}</td>
                                 <td>{{ $reservation_status->reservation->guest_id }}</td>
                                 <td>{{ $reservation_status->reservation->room_id }}</td>
+                                <td><a href="/reservation_statuses/{{$reservation_status -> id}}">More</a></td>
                             </tr>
                         @endforeach
                     </tbody>
