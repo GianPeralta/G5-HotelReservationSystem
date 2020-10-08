@@ -22,8 +22,16 @@
 					    <input type="number" class="form-control" min="1" max="11" name="floor_level" value="{{ $room->floor_level }}" required>
 				  	</div>
 					<div class="form-group">
-					    <label for="room_type">Room type</label>
-					    <input type="number" class="form-control" name="room_type_id" value="{{ $room->room_type_id }}" required>
+					    <label for="room_type_id">Room type</label>
+					    <select name="room_type_id" class="browser-default">
+					    	@foreach($room_types as $room_type)
+					    		@if($room_type->id == $room->room_type_id)
+					    			<option value="{{ $room_type->id }}" selected>{{ $room_type->description }}</option>
+					    		@else
+					    			<option value="{{ $room_type->id }}">{{ $room_type->description }}</option>
+					    		@endif
+					    	@endforeach
+					    </select>
 				  	</div>
 				  	<button type="button" onclick="location.href='/rooms/{{ $room->id }}';" class="btn btn-primary">
 				  		Cancel

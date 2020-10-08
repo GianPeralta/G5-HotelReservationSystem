@@ -39,9 +39,7 @@ class RoomTypesController extends Controller
             'standard_rate' => 'required',
             'description' => 'required' 
         ]);
-    	$room_type->standard_rate = request()->standard_rate;
-    	$room_type->description = request()->description;
-    	$room_type->save();
+    	$room_type->update($validated_fields);
 
         return redirect('/room-types/'.$room_type->id);
     }

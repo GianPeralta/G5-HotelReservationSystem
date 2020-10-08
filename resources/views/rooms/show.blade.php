@@ -21,7 +21,7 @@
 					<form action="/rooms/{{ $room->id }}" method='POST'>
 							@csrf
 							@method('DELETE')
-							<button class="btn btn-primary" type="button" onclick="location.href='/reservations';">
+							<button class="btn btn-primary" type="button" onclick="location.href='/rooms';">
 								Cancel
 								<i class="material-icons right">cancel</i>
 							</button>

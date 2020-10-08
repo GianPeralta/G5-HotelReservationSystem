@@ -38,8 +38,7 @@ class UserRolesController extends Controller
         $validated_fields = request()->validate([
             'title' => 'required'
         ]);
-    	$user_role->name = request()->name;
-    	$user_role->save();
+    	$user_role->update($validated_fields);
 
         return redirect('/user-roles/'.$user_role->id);
     }

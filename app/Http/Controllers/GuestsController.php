@@ -58,11 +58,7 @@ class GuestsController extends Controller
             'contact_number' => 'required|unique:guests',
             'email' => 'required|unique:guests'
         ]);
-        $guest->first_name = request()->first_name;
-        $guest->last_name = request()->last_name;
-        $guest->contact_number = request()->contact_number;
-        $guest->email = request()->email;
-    	$guest->save();
+        $guest->update($validated_fields);
 
     	//redirect
     	return redirect('/guests/'.$guest->id);

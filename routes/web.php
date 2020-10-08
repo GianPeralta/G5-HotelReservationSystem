@@ -109,6 +109,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::put('/services/{service}', 'ServicesController@update');
 	Route::delete('/services/{service}', 'ServicesController@destroy');
 
+	Route::post('/room-type-rooms/{room_type}', 'RoomTypeRoomsController@store');
 });
 
 

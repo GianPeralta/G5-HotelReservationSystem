@@ -40,9 +40,7 @@ class StaffUsersController extends Controller
             'name' => 'required',
             'user_role_id' => 'required'
         ]);
-    	$staff_user->name = request()->name;
-    	$staff_user->user_role_id = request()->user_role_id;
-    	$staff_user->save();
+    	$staff_user->update($validated_fields);
 
         return redirect('/staff-users/'.$staff_user->id);
     }

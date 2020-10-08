@@ -25,8 +25,8 @@ class ReservationsController extends Controller
     public function store() {
         $validated_fields = request()->validate([
             'date' => 'required',
-            'guest_id' => 'required|unique:reservations',
-            'room_id' => 'required|unique:reservations'
+            'guest_id' => 'required',
+            'room_id' => 'required'
         ]);
 
         $reservation = Reservation::create($validated_fields);
@@ -41,13 +41,10 @@ class ReservationsController extends Controller
     public function update(Reservation $reservation) {
         $validated_fields = request()->validate([
             'date' => 'required',
-            'guest_id' => 'required|unique:reservations',
-            'room_id' => 'required|unique:reservations'
+            'guest_id' => 'required',
+            'room_id' => 'required'
         ]);
-        $reservation->date = request()->date;
-        $reservation->guest_id = request()->guest_id;
-        $reservation->room_id = request()->room_id;
-        $reservation->save();
+        $reservation->update($validated_fields);
 
 
         return redirect('/reservations/'.$reservation->id);

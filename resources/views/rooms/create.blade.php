@@ -21,8 +21,12 @@
 					    <input type="number" class="form-control" min="1" max="10" name="floor_level" required>
 				  	</div>
 					<div class="form-group">
-					    <label for="room_type">Room type</label>
-					    <input type="number" class="form-control" name="room_type_id" required>
+					    <label for="room_type_id">Room type</label>
+					    <select name="room_type_id" class="browser-default">
+					    	@foreach($room_types as $room_type)
+					    			<option value="{{ $room_type->id }}">{{ $room_type->description }}</option>
+					    	@endforeach
+					    </select>
 				  	</div>
 
 				  	<button type="button" onclick="location.href='/rooms';" class="btn waves-effect wave-light">

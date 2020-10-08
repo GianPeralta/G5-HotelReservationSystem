@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\Room;
+use App\RoomType;
 use Illuminate\Http\Request;
 
 class RoomsController extends Controller
@@ -18,7 +19,8 @@ class RoomsController extends Controller
     }
 
     public function create() {
-    	return view('rooms.create');
+        $room_types = RoomType::all();
+    	return view('rooms.create', compact('room_types'));
     }
 
     public function store() {
@@ -35,7 +37,8 @@ class RoomsController extends Controller
     }
 
     public function edit(Room $room) {
-    	return view('rooms.edit', compact('room'));
+        $room_types = RoomType::all();
+    	return view('rooms.edit', compact('room', 'room_types'));
     }
 
     public function update(Room $room) {
@@ -46,11 +49,7 @@ class RoomsController extends Controller
             'room_type_id' => 'required'
         ]);
 
-        $room->name = request()->name;
-        $room->status = request()->status;
-        $room->floor_level = request()->floor_level;
-        $room->room_type_id = request()->room_type_id;
-        $room->save();
+        $room->update($validated_fields);
 
         return redirect('/rooms/'.$room->id);
     }

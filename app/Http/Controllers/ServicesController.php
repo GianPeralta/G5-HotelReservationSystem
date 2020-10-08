@@ -46,10 +46,7 @@ class ServicesController extends Controller
             'guest_id' => 'required'
         ]);
 
-        $service->name = request()->name;
-    	  $service->description = request()->description;
-        $service->guest_id = request()->guest_id;
-        $service->save();
+        $service->update($validated_fields);
 
         return redirect('/services/'.$service->id);
     }

@@ -50,10 +50,7 @@ class ReservationStatusesController extends Controller
             'description' => 'required'
 
         ]);
-        $reservation_status->reservation_id = request()->reservation_id;
-        $reservation_status->status = request()->status;
-        $reservation_status->description = request()->description;
-        $reservation_status->save();
+        $reservation_status->update($validated_fields);
 
         //redirect
         return redirect('/reservation_statuses/'.$reservation_status->id);

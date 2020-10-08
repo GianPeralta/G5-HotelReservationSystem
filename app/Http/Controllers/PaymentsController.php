@@ -47,10 +47,7 @@ class PaymentsController extends Controller
             'description' => 'required',
             'guest_id' => 'required'
         ]);
-        $payment->status = request()->status;
-        $payment->description = request()->description;
-        $payment->guest_id = request()->guest_id;
-        $payment->save();
+        $payment->update($validated_fields);
 
         //redirect
         return redirect('/payments/'.$payment->id);
