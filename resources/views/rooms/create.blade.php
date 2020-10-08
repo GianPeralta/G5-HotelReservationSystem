@@ -18,13 +18,21 @@
 				  	</div>
 				  	<div class="form-group">
 					    <label for="floor_level">Floor level</label>
-					    <input type="number" class="form-control" min="1" max="11" name="floor_level" required>
+					    <input type="number" class="form-control" min="1" max="10" name="floor_level" required>
 				  	</div>
 					<div class="form-group">
 					    <label for="room_type">Room type</label>
 					    <input type="number" class="form-control" name="room_type_id" required>
 				  	</div>
-				  	<button type="submit" class="btn btn-primary" name="action">Submit</button>
+
+				  	<button type="button" onclick="location.href='/rooms';" class="btn waves-effect wave-light">
+							Cancel
+							<i class="material-icons right">cancel</i>
+					</button>
+					<button type="submit" class="btn waves-effect wave-light" name="action">
+							Submit
+							<i class="material-icons right">send</i>
+					</button>
 				</form>
 			</div>
 		</div>

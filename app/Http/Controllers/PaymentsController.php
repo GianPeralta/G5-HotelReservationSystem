@@ -45,7 +45,7 @@ class PaymentsController extends Controller
         $validated_fields = request()->validate([
             'status' => 'required',
             'description' => 'required',
-            'guest_id' => 'required|unique:payments'
+            'guest_id' => 'required'
         ]);
         $payment->status = request()->status;
         $payment->description = request()->description;

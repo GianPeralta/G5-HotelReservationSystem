@@ -4,44 +4,33 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-					<!-- return button -->
-					<br>
-					<button class="btn waves-effect wave-light"><a style="color: #fff;" href="/reservation_statuses/{{ $reservation_status->id }}">Cancel
-						<i class="material-icons right">cancel</i></a>
-					</button>
-					<hr>
-
-					<h4>Update Reservation Status</h4>
-					<form action="/reservation_statuses/{{ $reservation_status->id }}" method="POST">
-						@method('PUT')
-						@include('layouts.errors')
-						@csrf
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Reservation ID" type="number" name="reservation_id" value='{{ $reservation_status-> reservation_id }}'>
-					         <label for="reservation_id">Reservation ID</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Status" type="text" name="status" value='{{ $reservation_status-> status }}'>
-					         <label for="status">Status</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Description" type="text" name="description" value='{{ $reservation_status-> description }}'>
-					         <label for="description">Room ID</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					     	<div class="col s12">
-					     		<button class="btn waves-effect wave-light" type="submit" name="action">Submit
-					     			<i class="material-icons right">send</i>
-					     		</button>
-					     	</div>
-					     </div>
-					</form>
+				<form action="/reservation_statuses/{{ $reservation_status->id }}" method='POST'>
+					@method('PUT')
+					@include('layouts.errors')
+					@csrf
+					<h5>Edit Reservation Status</h5>
+					<div class="form-group">
+					    <label for="reservation_id">Reservation ID</label>
+					    <input type="number" class="form-control" name="reservation_id" value="{{ $reservation_status->reservation_id }}" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="status">Status</label>
+					    <input type="text" class="form-control" name="status" value="{{ $reservation_status->status }}" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="description">Description</label>
+					    <input type="text" class="form-control" name="description" value="{{ $reservation_status->description }}" required>
+				  	</div>
+				  	
+				  	<button type="button" onclick="location.href='/reservation_statuses/{{ $reservation_status->id }}';" class="btn btn-primary">
+				  		Cancel
+				  		<i class="material-icons right">cancel</i>
+				  	</button>
+				  	<button type="submit" class="btn btn-primary" name="action">
+				  		Save
+				  		<i class="material-icons right">save</i>
+				  	</button>
+				</form>
 			</div>
 		</div>
 	</div>

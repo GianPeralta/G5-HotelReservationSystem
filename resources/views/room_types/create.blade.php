@@ -10,13 +10,20 @@
 					<h5>Create a new Room Type</h5>
 				  	<div class="form-group">
 					    <label for="standard_rate">Standard Rate</label>
-					    <input type="number" class="form-control" name="standard_rate" required>
+					    <input type="number" class="form-control" step="0.0001" name="standard_rate" required>
 				  	</div>
 					<div class="form-group">
 					    <label for="description">Description</label>
 					    <input type="text" class="form-control" name="description" required>
 				  	</div>
-				  	<button type="submit" class="btn btn-primary" name="action">Submit</button>
+				  	<button type="button" onclick="location.href='/room-types';" class="btn waves-effect wave-light">
+							Cancel
+							<i class="material-icons right">cancel</i>
+					</button>
+					<button type="submit" class="btn waves-effect wave-light" name="action">
+							Submit
+							<i class="material-icons right">send</i>
+					</button>
 				</form>
 			</div>
 		</div>

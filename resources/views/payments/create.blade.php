@@ -4,46 +4,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-					<!-- return button -->
-					<br>
-					<button class="btn waves-effect wave-light"><a style="color: #fff;" href="/payments">Cancel
-						<i class="material-icons right">cancel</i></a>
+				<form action="/payments" method='POST'>
+					@include('layouts.errors')
+					@csrf
+					<h5>Create a new Payment</h5>
+				  	<div class="form-group">
+					    <label for="status">Status</label>
+					    <input type="text" class="form-control" name="status" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="description">Description</label>
+					    <input type="text" class="form-control" name="description" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="guest_id">Guest ID</label>
+					    <input type="number" class="form-control" name="guest_id" required>
+				  	</div>
+
+				  	<button type="button" onclick="location.href='/payments';" class="btn waves-effect wave-light">
+							Cancel
+							<i class="material-icons right">cancel</i>
 					</button>
-					<hr>
-
-					<h4>Create Payment</h4>
-					<form action="/payments" method="POST">
-						@include('layouts.errors')
-						@csrf
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Status" type="text" name="status">
-					         <label for="status">Status</label>
-					       </div>
-					   	 </div>
-					   	 <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Description" type="text" name="description">
-					         <label for="description">Description</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Guest ID" type="number" name="guest_id" required>
-					         <label for="guest_id">Guest ID</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					     	<div class="col s12">
-
-					     		<button class="btn waves-effect wave-light" type="submit" name="action">Submit
-					     			<i class="material-icons right">send</i>
-					     		</button>
-					     		
-					     	</div>
-					     </div>
-					</form>
-
+					<button type="submit" class="btn waves-effect wave-light" name="action">
+							Submit
+							<i class="material-icons right">send</i>
+					</button>
+				</form>
 			</div>
 		</div>
 	</div>

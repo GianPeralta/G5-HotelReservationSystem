@@ -4,47 +4,36 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-				<!-- return button -->
-					<br>
-					<button class="btn waves-effect wave-light"><a style="color: #fff;" href="/guests">Cancel
-						<i class="material-icons right">cancel</i></a>
-					</button>
-					<hr>
+				<form action="/guests" method='POST'>
+					@include('layouts.errors')
+					@csrf
+					<h5>Create a new Guest</h5>
+				  	<div class="form-group">
+					    <label for="first_name">First Name</label>
+					    <input type="text" class="form-control" name="first_name" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="last_name">Last Name</label>
+					    <input type="text" class="form-control" name="last_name" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="contact_number">Contact Number</label>
+					    <input type="number" class="form-control" maxlength="11" name="contact_number" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="email">Email</label>
+					    <input type="email" class="form-control" name="email" required>
+				  	</div>
 
-					<h5>Create Guest</h5>
-					<form action="/guests" method="POST">
-						@include('layouts.errors')
-						@csrf
-					     <div class="row">
-					       <div class="input-field col s6">
-					         <input placeholder="First Name" id="first_name" type="text" name="first_name">
-					         <label for="first_name">First Name</label>
-					       </div>
-					       <div class="input-field col s6">
-					         <input placeholder="Last Name" id="last_name" type="text" name="last_name">
-					         <label for="last_name">Last Name</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Contact Number" id="contact_number" type="text" name="contact_number">
-					         <label for="first_name">Contact Number</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Email" id="email" type="email" name="email">
-					         <label for="email">Email</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					     	<div class="col s12">
-					     		<button class="btn waves-effect wave-light" type="submit" name="action">Submit
-					     			<i class="material-icons right">send</i>
-					     		</button>
-					     	</div>
-					     </div>
-					</form>
+				  	<button type="button" onclick="location.href='/guests';" class="btn waves-effect wave-light">
+							Cancel
+							<i class="material-icons right">cancel</i>
+					</button>
+					<button type="submit" class="btn waves-effect wave-light" name="action">
+							Submit
+							<i class="material-icons right">send</i>
+					</button>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -24,7 +24,7 @@ class UserRolesController extends Controller
 
     public function store() {
         $validated_fields = request()->validate([
-            'name' => 'required',
+            'title' => 'required|unique:user_roles',
         ]);
         $user_role = UserRole::create($validated_fields);
     	return redirect('/user-roles');
@@ -36,7 +36,7 @@ class UserRolesController extends Controller
 
     public function update(UserRole $user_role) {
         $validated_fields = request()->validate([
-            'name' => 'required'
+            'title' => 'required'
         ]);
     	$user_role->name = request()->name;
     	$user_role->save();

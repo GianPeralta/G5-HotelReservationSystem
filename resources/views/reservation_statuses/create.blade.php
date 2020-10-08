@@ -4,43 +4,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-					<!-- return button -->
-					<br>
-					<button class="btn waves-effect wave-light"><a style="color: #fff;" href="/reservation_statuses">Cancel
-						<i class="material-icons right">cancel</i></a>
+				<form action="/reservation_statuses" method='POST'>
+					@include('layouts.errors')
+					@csrf
+					<h5>Create a new Reservation Status</h5>
+				  	<div class="form-group">
+					    <label for="reservation_id">Reservation ID</label>
+					    <input type="number" class="form-control" name="reservation_id" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="status">Status</label>
+					    <input type="text" class="form-control" name="status" required>
+				  	</div>
+				  	<div class="form-group">
+					    <label for="description">Description</label>
+					    <input type="text" class="form-control" name="description" required>
+				  	</div>
+
+				  	<button type="button" onclick="location.href='/reservation_statuses';" class="btn waves-effect wave-light">
+							Cancel
+							<i class="material-icons right">cancel</i>
 					</button>
-					<hr>
-					
-					<h4>Create Reservation Status</h4>
-					<form action="/reservation_statuses" method="POST">
-						@include('layouts.errors')
-						@csrf
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Reservation ID" type="number" name="reservation_id">
-					         <label for="reservation_id">Reservation ID</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Status" type="text" name="status">
-					         <label for="status">Status</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Description" type="text" name="description">
-					         <label for="description">Description</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					     	<div class="col s12">
-					     		<button class="btn waves-effect wave-light" type="submit" name="action">Submit
-					     			<i class="material-icons right">send</i>
-					     		</button>
-					     	</div>
-					     </div>
-					</form>
+					<button type="submit" class="btn waves-effect wave-light" name="action">
+							Submit
+							<i class="material-icons right">send</i>
+					</button>
+				</form>
 			</div>
 		</div>
 	</div>

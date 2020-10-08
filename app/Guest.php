@@ -21,7 +21,7 @@ class Guest extends Model
     	return $this->hasMany(Payment::class);
     }
 
-    public function reservation() {
+    public function reservations() {
     	return $this->hasMany(Reservation::class);
     }
 

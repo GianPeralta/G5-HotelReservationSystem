@@ -4,37 +4,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="col s12">
-					<h5>Update Reservation</h5>
-					<form action="/reservations/{{ $reservation->id }}" method="POST">
-						@method('PUT')
-						@include('layouts.errors')
-						@csrf
-						<div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Date" type="date" name="date" value='{{ $reservation-> date }}'>
-					         <label for="date">Date</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Guest ID" type="number" name="guest_id" value='{{ $reservation-> guest_id }}'>
-					         <label for="guest_id">Guest ID</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					       <div class="input-field col s12">
-					         <input placeholder="Room ID" type="number" name="room_id" value='{{ $reservation-> room_id }}'>
-					         <label for="room_id">Room ID</label>
-					       </div>
-					     </div>
-					     <div class="row">
-					     	<div class="col s12">
-					     		<button class="btn waves-effect wave-light" type="submit" name="action">Submit
-					     			<i class="material-icons right">send</i>
-					     		</button>
-					     	</div>
-					     </div>
-					</form>
+				<form action="/reservations/{{ $reservation->id }}" method='POST'>
+					@method('PUT')
+					@include('layouts.errors')
+					@csrf
+					<h5>Edit Reservation</h5>
+				  	<div class="form-group">
+					    <label for="guest_id">Guest ID</label>
+					    <input type="text" class="form-control" name="guest_id" step="0.0001" value="{{ $reservation->guest_id }}" >
+				  	</div>
+					<div class="form-group">
+					    <label for="room_id">Room ID</label>
+					    <input type="text" class="form-control" name="room_id" value="{{ $reservation->room_id }}" >
+					</div>
+					<div class="form-group">
+					    <label for="date">Date</label>
+					    <input type="date" class="form-control" name="date" value="{{ $reservation->date }}" >
+					</div>
+				  	<button type="button" onclick="location.href='/reservations/{{ $reservation->id }}';" class="btn btn-primary">
+				  		Cancel
+				  		<i class="material-icons right">cancel</i>
+				  	</button>
+				  	<button type="submit" class="btn btn-primary" name="action">
+				  		Save
+				  		<i class="material-icons right">save</i>
+				  	</button>
+				</form>
 			</div>
 		</div>
 	</div>

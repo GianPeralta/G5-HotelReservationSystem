@@ -54,7 +54,7 @@
 					<div style="padding-top: 50px;">
 						<a href="/logout">
 							<button class="btn waves-effect wave-light" type="logout">Logout
-									<i class="material-icons right">send</i>
+									<i class="material-icons right">directions_run</i>
 							</button>
 						</a>
 						</div>

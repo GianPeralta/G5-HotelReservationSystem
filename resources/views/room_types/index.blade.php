@@ -3,21 +3,43 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col s12">
-                <div class="noli">
-                    <h5>Room Types</h5>
-                    
-                    <ul>
+            <div class="col s12">   
+                <h4>Room Types</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="color: #ee6e73; font-size: 20px;">ID</th>
+                            <th style="color: #ee6e73; font-size: 20px;">Standard Rate</th>
+                            <th style="color: #ee6e73; font-size: 20px;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         @foreach($room_types as $room_type)
-                            <li>[{{$room_type-> id}}] <a href="/room-types/{{$room_type-> id}}">{{$room_type-> description}}</a></li>
-                        @endforeach 
-                    </ul>
-                    <hr>
-                </div>
-                <div class="room-opt">
-                    <a href="/room-types/create">Create a new Room Type</a>
-                </div>
+                            <tr>
+                                <td><a href="/room-types/{{$room_type-> id}}">{{ $room_type->id }}</a></td>
+                                <td>{{ $room_type->standard_rate }}</td>
+                                <td>{{ $room_type->description }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="room-opt">
+                <hr>
+                <button onclick="location.href='/home';" class="btn waves-effect wave-light">
+                    Home
+                    <i class="material-icons right">home</i>
+                </button>
+                <button onclick="location.href='/room-types/create';" class="btn waves-effect wave-light">
+                    Create a new Room Type
+                    <i class="material-icons right">create</i>
+                </button>
+                <button onclick="location.href='/rooms';" class="btn waves-effect wave-light">
+                    Go to Rooms
+                    <i class="material-icons right">play_arrow</i>
+                </button>
             </div>
         </div>
     </div>
-@endsection
+@endsection 

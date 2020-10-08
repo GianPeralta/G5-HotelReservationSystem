@@ -1,34 +1,48 @@
+@extends('layouts.master')
 
-    <div class="noli">
-        <h5>Staff Users</h5>
-        
-        <ul>
-            @foreach($staff_users as $staff_user)
-                <li>[{{$staff_user-> id}}] <a href="/staff-users/{{$staff_user-> id}}">{{$staff_user-> name}}</a></li>
-            @endforeach 
-        </ul>
-        <hr>
-
+@section('content')
+    <div class="container">
         <div class="row">
-                    <table>
-                        <thead>
+            <div class="col s12">   
+                <h4>Staff Users</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="color: #ee6e73; font-size: 20px;">ID</th>
+                            <th style="color: #ee6e73; font-size: 20px;">Name</th>
+                            <th style="color: #ee6e73; font-size: 20px;">User Role ID</th>
+                            <th style="color: #ee6e73; font-size: 20px;">Title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($staff_users as $staff_user)
                             <tr>
-                                <th>Name</th>
-                                <th>User Role</th>
+                                <td><a href="/staff-users/{{$staff_user-> id}}">{{ $staff_user->id }}</a></td>
+                                <td>{{ $staff_user->name }}</td>
+                                <td>{{ $staff_user->user_role->id }}</td>
+                                <td>{{ $staff_user->user_role->title }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($staff_users as $staff_user)
-                                <tr>
-                                    <td>{{ $staff_user->name }}</td>
-                                    <td>{{ $staff_user->user_role->name }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-        </div>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
+            <div class="room-opt">
+                <hr>
+                <button onclick="location.href='/home';" class="btn waves-effect wave-light">
+                    Home
+                    <i class="material-icons right">home</i>
+                </button>
+                <button onclick="location.href='/staff-users/create';" class="btn waves-effect wave-light">
+                    Create a new Staff User
+                    <i class="material-icons right">create</i>
+                </button>
+
+                <button onclick="location.href='/user-roles';" class="btn waves-effect wave-light">
+                    Go to User Roles
+                    <i class="material-icons right">play_arrow</i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="room-opt">
-        <a href="/staff-users/create">Create a new Staff User</a>
-    </div>
+@endsection 
