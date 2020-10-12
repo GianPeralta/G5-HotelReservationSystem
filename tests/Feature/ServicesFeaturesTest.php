@@ -56,20 +56,16 @@ class ServicesFeaturesTest extends TestCase
    /** @test */
     public function test_a_user_can_update_service()
     {
-        $service = factory(Service::class)->create();
-        $service->name = "Housekeeping";
-        $service->description = "Back-of-the-house";
-        $service->guests_id = "1290783";
-        $response = $this->put('/services/'.$service->id, $service->toArray());
-        $this->assertDatabaseHas('services', ['id' => $service->id, 'name' => 'Housekeeping', 'description' => 'Back-of-the-house',
-            'guests_id' => '1290783']);
-        $response->assertRedirect('/services/'.$service->id);
+      $form_fields = ['name' => $service->id, 'description' => $service->description, 'guests_id' => $service->guests_id];
+        $response = $this->put('/services/'.$service->id, $form_fields);
+        $this->assertDatabaseHas('services', $form_fields);
+        $response->assertRedirect('/services'.$service->id);
     }
 
     /** @test */
     public function a_user_can_delete_a_service()
     {
-        $service = factory(Service::class)->create();
+
         $response = $this->delete('/services/'.$service->id);
         $this->assertDatabaseMissing('services', ['id'=> $service->id]);
         $response->assertRedirect('/services');
