@@ -56,7 +56,7 @@ class ServicesFeaturesTest extends TestCase
    /** @test */
     public function test_a_user_can_update_service()
     {
-      $form_fields = ['name' => $service->id, 'description' => $service->description, 'guests_id' => $service->guests_id];
+      $form_fields = ['name' => $service->name, 'description' => $service->description, 'guests_id' => $service->guests_id];
         $response = $this->put('/services/'.$service->id, $form_fields);
         $this->assertDatabaseHas('services', $form_fields);
         $response->assertRedirect('/services'.$service->id);
