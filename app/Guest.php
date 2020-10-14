@@ -17,6 +17,7 @@ class Guest extends Model
 
     public $timestamps = false;
 
+
     public function payments() {
     	return $this->hasMany(Payment::class);
     }
@@ -28,4 +29,12 @@ class Guest extends Model
     public function services() {
     	return $this->hasMany(Service::class);
     }
+
+
+    public function credential()
+    {
+        return $this->first_name.' '.$this->last_name.' '.$this->contact_number.' '.$this->email;
+    }
+
+
 }

@@ -25,16 +25,25 @@ Route::get('/logout', 'LoginController@logout')->middleware('auth');
 Route::get('/home', 'HomeController@index')->middleware('auth');
 
 
-Route::middleware(['auth'])->group(function(){
-	// FOR GUESTS TABLE
+
+// FOR GUESTS
+
 	Route::get('/guests', 'GuestsController@index');
 	Route::get('/guests/create', 'GuestsController@create');
 	Route::get('/guests/{guest}', 'GuestsController@show');
 	Route::get('/guests/{guest}/edit', 'GuestsController@edit');
+
+	// GET /events/{event}/edit update display the update form
+	Route::get('/guests/{guest}/edit', 'GuestsController@edit');
+	Route::get('/guests/{guest}', 'GuestsController@show');
+	
+	//POST /events store a record
 	Route::post('/guests', 'GuestsController@store');
 	Route::put('/guests/{guest}', 'GuestsController@update');
 	Route::delete('/guests/{guest}', 'GuestsController@destroy');
 
+
+Route::middleware(['auth'])->group(function(){
 
 	// FOR RESERVATION STATUSES TABLE
 	Route::get('/reservation_statuses', 'ReservationStatusesController@index');

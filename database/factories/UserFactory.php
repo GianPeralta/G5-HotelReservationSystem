@@ -4,6 +4,8 @@
 
 use App\User;
 use App\Payment;
+use App\Guest;
+
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -33,5 +35,16 @@ $factory->define(Payment::class, function (Faker $faker) {
       'status' => $faker->status ,
       'description' => $faker->description
 
-];
+	];
 });
+
+$factory->define(Guest::class, function (Faker $faker){
+	return[
+		'first_name' => $faker->firstName,
+		'last_name' => $faker->lastName,
+		'contact_number' => $faker->e164PhoneNumber,
+		'email' => $faker->freeEmail,
+
+	];
+});
+
