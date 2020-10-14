@@ -5,6 +5,9 @@
 use App\User;
 use App\Payment;
 use App\Guest;
+use App\RoomType;
+use App\Room;
+
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -46,5 +49,12 @@ $factory->define(Guest::class, function (Faker $faker){
 		'email' => $faker->freeEmail,
 
 	];
+});
+
+$factory->define(RoomType::class, function (Faker $faker) {
+    return [
+        'standard_rate' => $faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+        'description' => $faker->word,
+    ];
 });
 
