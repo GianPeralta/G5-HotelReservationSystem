@@ -3,10 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\URL;
-use Illuminate\Routing\RoutingServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\UrlGenerator;
 
-class AppServiceProvider extends RoutingServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -25,17 +25,8 @@ class AppServiceProvider extends RoutingServiceProvider
      */
     public function boot()
     {
-        App::bind('url', function () {
-            $generator = new UrlGenerator(
-                App::make('router')->getRoutes(),
-                App::make('request');
-            });
-
-            $generator->forceSchema('https');
-
-            return $generator;
+        if (env('APP_ENV') !== 'local'){
+            URL::forSchema('https');
         }
-
-        parent::boot();
     }
 }
