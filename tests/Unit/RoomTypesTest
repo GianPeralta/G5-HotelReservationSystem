@@ -1,0 +1,23 @@
+<?php
+
+namespace Tests\Unit;
+
+use App\RoomType;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class GuestsTest extends TestCase
+{
+	use RefreshDatabase;
+    
+    /** @test */
+    public function a_room_type_returns_its_info()
+    {
+    	$room_type = factory(RoomType::class)->create();
+    	$info = $room_type->standard_rate.' '.$room_type->description;
+    	$this->assertTrue($info == $room_type->info()); 
+    }
+
+   
+}

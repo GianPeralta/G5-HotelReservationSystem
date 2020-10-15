@@ -11,4 +11,9 @@ class RoomType extends Model
     public function rooms() {
     	return $this->hasMany(Room::class);
     }
+
+    public function info()
+    {
+        return $this->standard_rate.' '.$this->description;
+    }
 }
