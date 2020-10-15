@@ -25,11 +25,17 @@ class AppServiceProvider extends RoutingServiceProvider
      */
     public function boot()
     {
-        if (env('APP_ENV') !== 'local'){
-            URL::forScheme('https');
+        App::bind('url', function () {
+            $generator = new UrlGenerator(
+                App::make('router')->getRoutes(),
+                App::make('request');
+            });
+
+            $generator->forceSchema('https');
+
+            return $generator;
         }
-        else{
-            URL::forScheme('https');
-        }
+
+        parent::boot();
     }
 }
